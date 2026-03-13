@@ -13,4 +13,7 @@ task set 1
     85% utilization (likely to fail DM, but pass EDF).
 
 
-task set u30, u50, u70, u90
+task set folders u30, u50, u70, u90
+    CODE: python ./task_generator.py -u 30 -n 10 -p 1 -r -s 20
+        Reminder to change u based on folder name
+    Goal: Create task sets to see EDF and DM under different loads and see EDF should be best at high loads
