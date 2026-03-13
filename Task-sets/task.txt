@@ -1,9 +1,13 @@
-
+task-set-example
+    Givin to us in drive
 
 task set 0
-
+    CODE: python ./task_generator.py
+    GOAL: See if task task_generator works and gave us an output
 
 
 task set 1
+    CODE: python ./task_generator.py -u 85 -n 10 -p 1 -r -s 1
+    Goal: Create a task set that is schedulable under EDF but fails under DM.
     The "Borderline" Set (DM vs. EDF Comparison)
     85% utilization (likely to fail DM, but pass EDF).
