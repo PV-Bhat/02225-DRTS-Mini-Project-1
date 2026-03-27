@@ -1,0 +1,143 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{charter}
+\usepackage[danish,english]{babel}
+\usepackage{graphicx, float, varioref, fancyvrb, array, mathtools, algorithm, algpseudocode, enumitem, url}
+\usepackage[a4paper,margin=2cm]{geometry}
+
+\setlist{noitemsep, topsep=0pt}
+
+\begin{document}
+
+\title{\vspace{-50pt} 02225 DRTS Mini-project 1 description}
+\author{}
+\date{}
+
+\maketitle
+
+\vspace{-20pt}
+This document describes the Mini-project 1 requirements for the 02225 Distributed Real-Time Systems (DRTS) course. The objective is to analyze and compare the schedulability and response times of periodic task sets (running on a single core) using different real-time scheduling algorithms.
+
+\section{Project Requirements}
+
+The students are required to develop their own software to perform the project activities. Any programming language and libraries may be used for the implementation. Guidance on the use of Generative AI is provided under ``Content/Course information''.
+
+The project requirements are defined at a high level:
+
+\begin{itemize}
+    \item Determine the worst-case response times (WCRTs) of a set of periodic real-time tasks. The analysis must consider:
+    \begin{itemize}
+        \item Deadline Monotonic (DM) scheduling.
+        \item Earliest Deadline First (EDF) scheduling.
+        \item Note: we consider the case when deadlines are smaller or equal to the periods.
+    \end{itemize}
+    \item Compare Deadline Monotonic (or Rate Monotonic) with EDF.
+    \item Compare the calculated WCRTs with response times observed during simulations. 
+\end{itemize}
+
+The students have the freedom to decide the comparison methodology between RM/DM and EDF, and the approach for comparing simulation results with worst-case behavior. 
+
+\section{Resources}
+
+\subsection*{Comparison and Methodology}
+\begin{itemize}
+    \item The lecture slides and course reading list provide the necessary theoretical background and comparison strategies.
+    \item ``Content/Mini-project-1'' contains suggestions for test cases and a test case generation tool.
+    \item The section ``What is a good project that will get a top grade?'' under ``Content/Course information'' on the course website discusses project evaluation criteria.
+\end{itemize}
+
+\subsection*{Theoretical References}
+The following sections from the Buttazzo course textbook \cite{buttazzo2024} are relevant:
+
+\paragraph{Deadline Monotonic (DM)}
+\begin{itemize}
+    \item Section 4.5: Deadline Monotonic.
+    \item Section 4.5.2: Response Time Analysis.
+    \item Figure 4.17: Algorithm for testing the schedulability of a periodic task set $\Gamma$ with the response time analysis.
+\end{itemize}
+
+\paragraph{Earliest Deadline First (EDF)}
+\begin{itemize}
+    \item Section 4.6: EDF with Deadlines Less Than Periods;
+    \item Section 4.6.1: The Processor Demand Approach (both from \cite{buttazzo2024});
+    \item ``Rate Monotonic vs. EDF: Judgment Day'' paper \cite{buttazzo2005};
+    \item ``WCRT calculation for EDF with arbitrary deadlines'' book chapter \cite{stankovic1998}.
+\end{itemize}
+
+\paragraph{Simulation}
+\begin{itemize}
+    \item Introduction to simulation and simulation slides (PDFs available in the Week 2 content tab).
+    \item Section 13.5.3: Scheduling Simulators (from \cite{buttazzo2024}).
+    \item Note: 
+    When you simulate, the execution time can be generated between the Best-Case Execution Time (BCET) and Worst-Case Execution Time (WCET).
+\end{itemize}
+
+% \section{Potential Extensions}
+% % (I will add details here)
+% To be added.
+
+\appendix
+
+\section{Worst-Case Response Time Analysis for EDF}
+
+For a set of strictly periodic tasks with synchronous release (all tasks start at $t=0$) and fixed execution times (WCET), the EDF schedule is deterministic and cyclic. The schedule repeats every \textbf{Hyperperiod} ($H$), which is the least common multiple of the tasks' periods:
+\begin{equation}
+    H = \text{lcm}(T_1, T_2, \dots, T_n)
+\end{equation}
+
+\noindent Unlike the general sporadic task model (which requires complex iterative analysis, \cite{stankovic1998}), the exact Worst-Case Response Time (WCRT) for the synchronous periodic model can be derived analytically by constructing the theoretical schedule over the interval $[0, H]$.
+
+\subsection*{Algorithm for WCRT Determination}
+To determine the WCRT for each task, the "Analytical Tool" should implement the following procedure:
+
+\begin{enumerate}
+    \item \textbf{Determine the Hyperperiod:} Calculate $H = \text{lcm}(T_1, \dots, T_n)$.
+    
+    \item \textbf{Generate Jobs:} Identify all jobs (instances) for all tasks that are released in the interval $[0, H)$. For a task $\tau_i$, the jobs are released at $r_{i,k} = k \cdot T_i$ where $r_{i,k} < H$.
+    
+    \item \textbf{Construct the Schedule:} Simulate the EDF scheduling decisions from $t=0$ to $t=H$ (or until the processor becomes idle after $H$, if $U=1$) under the following strict assumptions:
+    \begin{itemize}
+        \item \textbf{Synchronous Start:} All tasks release their first job at $t=0$.
+        \item \textbf{Worst-Case Load:} Every job executes for exactly its $WCET$ ($C_i$).
+        \item \textbf{EDF Rules:} At any time $t$, the processor is assigned to the ready job with the earliest absolute deadline ($d_{i,k} = r_{i,k} + D_i$).
+    \end{itemize}
+    
+    \item \textbf{Record Finish Times:} For every job $k$ of task $\tau_i$, record the time $f_{i,k}$ when it completes its execution.
+    
+    \item \textbf{Calculate Response Times:} The response time for job $k$ is $R_{i,k} = f_{i,k} - r_{i,k}$.
+    
+    \item \textbf{Determine WCRT:} The WCRT for task $\tau_i$ is the maximum response time observed among all its jobs in the hyperperiod:
+    \begin{equation}
+        WCRT_i = \max_{k} \{ R_{i,k} \}
+    \end{equation}
+\end{enumerate}
+
+Note: This method provides the \textit{exact} theoretical worst-case. This differs from the stochastic simulation required in other parts of the project, where execution times may vary between BCET and WCET. For further background on the cyclic properties of EDF schedules, refer to \cite{buttazzo2024}.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{1}
+
+\bibitem{buttazzo2024}
+Giorgio Buttazzo.
+\newblock {\em Hard Real-Time Computing Systems: Predictable Scheduling Algorithms and Applications}.
+\newblock Springer, 2024.
+
+\bibitem{buttazzo2005}
+Giorgio Buttazzo.
+\newblock {``Rate monotonic vs. EDF: Judgment day.''}
+\newblock {\em Real-Time Systems 29.1}.
+\newblock (2005): 5-26.
+
+\bibitem{simslides}
+Course Materials.
+\newblock {\em Introduction to Simulation} (book chapter) and {\em Simulation Slides}.
+\newblock Available under ``Content/week 2''.
+
+\bibitem{stankovic1998}
+John A. Stankovic, Marco Spuri, Krithi Ramamritham, and Giorgio C. Buttazzo.
+\newblock ``Response Times under EDF Scheduling.''
+\newblock In {\em Deadline Scheduling for Real-Time Systems}.
+\newblock Springer, 1998.
+
+\end{thebibliography}
+
+\end{document}
