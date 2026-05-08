@@ -1,0 +1,105 @@
+{
+  "delay_units": "MICRO_SECOND",
+  "streams": [
+    {
+        "id": 0,
+        "name": "Stream0",
+        "source": "ES7",
+        "destinations": [
+            {
+                "id": "ES10",
+                "deadline": 1000
+            }
+        ],
+        "type": "CYCLIC-SCHEDULED",
+        "PCP": 7,
+        "size": 105,
+        "period": 1000,
+        "redundancy": 0
+    },
+    {
+        "id": 1,
+        "name": "Stream1",
+        "source": "ES3",
+        "destinations": [
+            {
+                "id": "ES19",
+                "deadline": 50
+            }
+        ],
+        "type": "HIGH-RESOLUTION-SENSOR",
+        "PCP": 6,
+        "size": 1480,
+        "period": 50,
+        "redundancy": 0
+    },
+    {
+        "id": 2,
+        "name": "Stream2",
+        "source": "ES18",
+        "destinations": [
+            {
+                "id": "ES2",
+                "deadline": 50
+            }
+        ],
+        "type": "HIGH-RESOLUTION-SENSOR",
+        "PCP": 6,
+        "size": 1500,
+        "period": 50,
+        "redundancy": 0
+    },
+    {
+        "id": 3,
+        "name": "Stream3",
+        "source": "ES11",
+        "destinations": [
+            {
+                "id": "ES15",
+                "deadline": 20
+            },
+            {
+                "id": "ES17",
+                "deadline": 20
+            }
+        ],
+        "type": "ACOUSTIC-SENSOR",
+        "PCP": 5,
+        "size": 34,
+        "period": 20,
+        "redundancy": 0
+    },
+    {
+        "id": 4,
+        "name": "Stream4",
+        "source": "ES17",
+        "destinations": [
+            {
+                "id": "ES15",
+                "deadline": 50
+            }
+        ],
+        "type": "FLEXRAY",
+        "PCP": 4,
+        "size": 137,
+        "period": 50,
+        "redundancy": 0
+    },
+    {
+        "id": 5,
+        "name": "Stream5",
+        "source": "ES2",
+        "destinations": [
+            {
+                "id": "ES3",
+                "deadline": null
+            }
+        ],
+        "type": "BEST-EFFORT",
+        "PCP": 0,
+        "size": 1500,
+        "period": null,
+        "redundancy": 0
+    }
+  ]
+}

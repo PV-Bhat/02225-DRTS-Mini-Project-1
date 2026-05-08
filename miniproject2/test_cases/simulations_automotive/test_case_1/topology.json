@@ -1,0 +1,1052 @@
+{
+"topology": {
+    "delay_units": "MICRO_SECOND",
+    "default_bandwidth_mbps": 1000,
+    "switches": [
+      {
+        "id": "SW0",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW1",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW2",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW3",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW4",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW5",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW6",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW7",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW8",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW9",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW10",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW11",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW12",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW13",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW14",
+        "ports": 8,
+        "domain": 0
+      },
+      {
+        "id": "SW15",
+        "ports": 8,
+        "domain": 0
+      }
+    ],
+    "end_systems": [
+      {
+        "id": "ES0",
+        "domain": 0
+      },
+      {
+        "id": "ES1",
+        "domain": 0
+      },
+      {
+        "id": "ES2",
+        "domain": 0
+      },
+      {
+        "id": "ES3",
+        "domain": 0
+      },
+      {
+        "id": "ES4",
+        "domain": 0
+      },
+      {
+        "id": "ES5",
+        "domain": 0
+      },
+      {
+        "id": "ES6",
+        "domain": 0
+      },
+      {
+        "id": "ES7",
+        "domain": 0
+      },
+      {
+        "id": "ES8",
+        "domain": 0
+      },
+      {
+        "id": "ES9",
+        "domain": 0
+      },
+      {
+        "id": "ES10",
+        "domain": 0
+      },
+      {
+        "id": "ES11",
+        "domain": 0
+      },
+      {
+        "id": "ES12",
+        "domain": 0
+      },
+      {
+        "id": "ES13",
+        "domain": 0
+      },
+      {
+        "id": "ES14",
+        "domain": 0
+      },
+      {
+        "id": "ES15",
+        "domain": 0
+      },
+      {
+        "id": "ES16",
+        "domain": 0
+      },
+      {
+        "id": "ES17",
+        "domain": 0
+      },
+      {
+        "id": "ES18",
+        "domain": 0
+      },
+      {
+        "id": "ES19",
+        "domain": 0
+      }
+    ],
+    "links": [
+      {
+        "id": "Link0",
+        "source": "SW0",
+        "destination": "SW4",
+        "sourcePort": 2,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 26.766
+      },
+      {
+        "id": "Link1",
+        "source": "SW4",
+        "destination": "SW0",
+        "sourcePort": 2,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 26.766
+      },
+      {
+        "id": "Link2",
+        "source": "SW0",
+        "destination": "SW1",
+        "sourcePort": 3,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 29.37
+      },
+      {
+        "id": "Link3",
+        "source": "SW1",
+        "destination": "SW0",
+        "sourcePort": 2,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 29.37
+      },
+      {
+        "id": "Link4",
+        "source": "SW0",
+        "destination": "ES6",
+        "sourcePort": 6,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 2.473
+      },
+      {
+        "id": "Link5",
+        "source": "ES6",
+        "destination": "SW0",
+        "sourcePort": 0,
+        "destinationPort": 6,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 2.473
+      },
+      {
+        "id": "Link6",
+        "source": "SW0",
+        "destination": "ES8",
+        "sourcePort": 7,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 1.048
+      },
+      {
+        "id": "Link7",
+        "source": "ES8",
+        "destination": "SW0",
+        "sourcePort": 0,
+        "destinationPort": 7,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 1.048
+      },
+      {
+        "id": "Link8",
+        "source": "SW1",
+        "destination": "SW5",
+        "sourcePort": 3,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 17.274
+      },
+      {
+        "id": "Link9",
+        "source": "SW5",
+        "destination": "SW1",
+        "sourcePort": 2,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 17.274
+      },
+      {
+        "id": "Link10",
+        "source": "SW1",
+        "destination": "SW2",
+        "sourcePort": 4,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 11.214
+      },
+      {
+        "id": "Link11",
+        "source": "SW2",
+        "destination": "SW1",
+        "sourcePort": 2,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 11.214
+      },
+      {
+        "id": "Link12",
+        "source": "SW2",
+        "destination": "SW6",
+        "sourcePort": 3,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 19.199
+      },
+      {
+        "id": "Link13",
+        "source": "SW6",
+        "destination": "SW2",
+        "sourcePort": 2,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 19.199
+      },
+      {
+        "id": "Link14",
+        "source": "SW2",
+        "destination": "SW3",
+        "sourcePort": 4,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 16.116
+      },
+      {
+        "id": "Link15",
+        "source": "SW3",
+        "destination": "SW2",
+        "sourcePort": 2,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 16.116
+      },
+      {
+        "id": "Link16",
+        "source": "SW2",
+        "destination": "ES2",
+        "sourcePort": 6,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 5.469
+      },
+      {
+        "id": "Link17",
+        "source": "ES2",
+        "destination": "SW2",
+        "sourcePort": 0,
+        "destinationPort": 6,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 5.469
+      },
+      {
+        "id": "Link18",
+        "source": "SW2",
+        "destination": "ES13",
+        "sourcePort": 7,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 8.492
+      },
+      {
+        "id": "Link19",
+        "source": "ES13",
+        "destination": "SW2",
+        "sourcePort": 0,
+        "destinationPort": 7,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 8.492
+      },
+      {
+        "id": "Link20",
+        "source": "SW3",
+        "destination": "SW7",
+        "sourcePort": 3,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 10.954
+      },
+      {
+        "id": "Link21",
+        "source": "SW7",
+        "destination": "SW3",
+        "sourcePort": 2,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 10.954
+      },
+      {
+        "id": "Link22",
+        "source": "SW4",
+        "destination": "SW8",
+        "sourcePort": 3,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 35.94
+      },
+      {
+        "id": "Link23",
+        "source": "SW8",
+        "destination": "SW4",
+        "sourcePort": 2,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 35.94
+      },
+      {
+        "id": "Link24",
+        "source": "SW4",
+        "destination": "SW5",
+        "sourcePort": 4,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 12.59
+      },
+      {
+        "id": "Link25",
+        "source": "SW5",
+        "destination": "SW4",
+        "sourcePort": 3,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 12.59
+      },
+      {
+        "id": "Link26",
+        "source": "SW5",
+        "destination": "SW9",
+        "sourcePort": 4,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 48.816
+      },
+      {
+        "id": "Link27",
+        "source": "SW9",
+        "destination": "SW5",
+        "sourcePort": 2,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 48.816
+      },
+      {
+        "id": "Link28",
+        "source": "SW5",
+        "destination": "SW6",
+        "sourcePort": 5,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 42.294
+      },
+      {
+        "id": "Link29",
+        "source": "SW6",
+        "destination": "SW5",
+        "sourcePort": 3,
+        "destinationPort": 5,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 42.294
+      },
+      {
+        "id": "Link30",
+        "source": "SW5",
+        "destination": "ES1",
+        "sourcePort": 6,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 7.727
+      },
+      {
+        "id": "Link31",
+        "source": "ES1",
+        "destination": "SW5",
+        "sourcePort": 0,
+        "destinationPort": 6,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 7.727
+      },
+      {
+        "id": "Link32",
+        "source": "SW5",
+        "destination": "ES5",
+        "sourcePort": 7,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 5.225
+      },
+      {
+        "id": "Link33",
+        "source": "ES5",
+        "destination": "SW5",
+        "sourcePort": 0,
+        "destinationPort": 7,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 5.225
+      },
+      {
+        "id": "Link34",
+        "source": "SW5",
+        "destination": "ES14",
+        "sourcePort": 0,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 3.823
+      },
+      {
+        "id": "Link35",
+        "source": "ES14",
+        "destination": "SW5",
+        "sourcePort": 0,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 3.823
+      },
+      {
+        "id": "Link36",
+        "source": "SW5",
+        "destination": "ES15",
+        "sourcePort": 1,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 7.007
+      },
+      {
+        "id": "Link37",
+        "source": "ES15",
+        "destination": "SW5",
+        "sourcePort": 0,
+        "destinationPort": 1,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 7.007
+      },
+      {
+        "id": "Link38",
+        "source": "SW6",
+        "destination": "SW10",
+        "sourcePort": 4,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 40.127
+      },
+      {
+        "id": "Link39",
+        "source": "SW10",
+        "destination": "SW6",
+        "sourcePort": 2,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 40.127
+      },
+      {
+        "id": "Link40",
+        "source": "SW6",
+        "destination": "SW7",
+        "sourcePort": 5,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 12.863
+      },
+      {
+        "id": "Link41",
+        "source": "SW7",
+        "destination": "SW6",
+        "sourcePort": 3,
+        "destinationPort": 5,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 12.863
+      },
+      {
+        "id": "Link42",
+        "source": "SW6",
+        "destination": "ES4",
+        "sourcePort": 6,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 1.252
+      },
+      {
+        "id": "Link43",
+        "source": "ES4",
+        "destination": "SW6",
+        "sourcePort": 0,
+        "destinationPort": 6,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 1.252
+      },
+      {
+        "id": "Link44",
+        "source": "SW6",
+        "destination": "ES7",
+        "sourcePort": 7,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 9.689
+      },
+      {
+        "id": "Link45",
+        "source": "ES7",
+        "destination": "SW6",
+        "sourcePort": 0,
+        "destinationPort": 7,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 9.689
+      },
+      {
+        "id": "Link46",
+        "source": "SW6",
+        "destination": "ES9",
+        "sourcePort": 0,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 4.935
+      },
+      {
+        "id": "Link47",
+        "source": "ES9",
+        "destination": "SW6",
+        "sourcePort": 0,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 4.935
+      },
+      {
+        "id": "Link48",
+        "source": "SW6",
+        "destination": "ES18",
+        "sourcePort": 1,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 4.533
+      },
+      {
+        "id": "Link49",
+        "source": "ES18",
+        "destination": "SW6",
+        "sourcePort": 0,
+        "destinationPort": 1,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 4.533
+      },
+      {
+        "id": "Link50",
+        "source": "SW7",
+        "destination": "SW11",
+        "sourcePort": 4,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 29.371
+      },
+      {
+        "id": "Link51",
+        "source": "SW11",
+        "destination": "SW7",
+        "sourcePort": 2,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 29.371
+      },
+      {
+        "id": "Link52",
+        "source": "SW7",
+        "destination": "ES3",
+        "sourcePort": 6,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 1.725
+      },
+      {
+        "id": "Link53",
+        "source": "ES3",
+        "destination": "SW7",
+        "sourcePort": 0,
+        "destinationPort": 6,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 1.725
+      },
+      {
+        "id": "Link54",
+        "source": "SW8",
+        "destination": "SW12",
+        "sourcePort": 3,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 49.042
+      },
+      {
+        "id": "Link55",
+        "source": "SW12",
+        "destination": "SW8",
+        "sourcePort": 2,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 49.042
+      },
+      {
+        "id": "Link56",
+        "source": "SW8",
+        "destination": "SW9",
+        "sourcePort": 4,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 46.387
+      },
+      {
+        "id": "Link57",
+        "source": "SW9",
+        "destination": "SW8",
+        "sourcePort": 3,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 46.387
+      },
+      {
+        "id": "Link58",
+        "source": "SW8",
+        "destination": "ES11",
+        "sourcePort": 6,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 8.63
+      },
+      {
+        "id": "Link59",
+        "source": "ES11",
+        "destination": "SW8",
+        "sourcePort": 0,
+        "destinationPort": 6,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 8.63
+      },
+      {
+        "id": "Link60",
+        "source": "SW8",
+        "destination": "ES19",
+        "sourcePort": 7,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 2.045
+      },
+      {
+        "id": "Link61",
+        "source": "ES19",
+        "destination": "SW8",
+        "sourcePort": 0,
+        "destinationPort": 7,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 2.045
+      },
+      {
+        "id": "Link62",
+        "source": "SW9",
+        "destination": "SW13",
+        "sourcePort": 4,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 48.115
+      },
+      {
+        "id": "Link63",
+        "source": "SW13",
+        "destination": "SW9",
+        "sourcePort": 2,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 48.115
+      },
+      {
+        "id": "Link64",
+        "source": "SW9",
+        "destination": "SW10",
+        "sourcePort": 5,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 10.926
+      },
+      {
+        "id": "Link65",
+        "source": "SW10",
+        "destination": "SW9",
+        "sourcePort": 3,
+        "destinationPort": 5,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 10.926
+      },
+      {
+        "id": "Link66",
+        "source": "SW10",
+        "destination": "SW14",
+        "sourcePort": 4,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 20.462
+      },
+      {
+        "id": "Link67",
+        "source": "SW14",
+        "destination": "SW10",
+        "sourcePort": 2,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 20.462
+      },
+      {
+        "id": "Link68",
+        "source": "SW10",
+        "destination": "SW11",
+        "sourcePort": 5,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 33.468
+      },
+      {
+        "id": "Link69",
+        "source": "SW11",
+        "destination": "SW10",
+        "sourcePort": 3,
+        "destinationPort": 5,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 33.468
+      },
+      {
+        "id": "Link70",
+        "source": "SW10",
+        "destination": "ES16",
+        "sourcePort": 6,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 2.799
+      },
+      {
+        "id": "Link71",
+        "source": "ES16",
+        "destination": "SW10",
+        "sourcePort": 0,
+        "destinationPort": 6,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 2.799
+      },
+      {
+        "id": "Link72",
+        "source": "SW11",
+        "destination": "SW15",
+        "sourcePort": 4,
+        "destinationPort": 2,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 31.655
+      },
+      {
+        "id": "Link73",
+        "source": "SW15",
+        "destination": "SW11",
+        "sourcePort": 2,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 31.655
+      },
+      {
+        "id": "Link74",
+        "source": "SW11",
+        "destination": "ES12",
+        "sourcePort": 6,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 3.506
+      },
+      {
+        "id": "Link75",
+        "source": "ES12",
+        "destination": "SW11",
+        "sourcePort": 0,
+        "destinationPort": 6,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 3.506
+      },
+      {
+        "id": "Link76",
+        "source": "SW12",
+        "destination": "SW13",
+        "sourcePort": 3,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 42.236
+      },
+      {
+        "id": "Link77",
+        "source": "SW13",
+        "destination": "SW12",
+        "sourcePort": 3,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 42.236
+      },
+      {
+        "id": "Link78",
+        "source": "SW12",
+        "destination": "ES17",
+        "sourcePort": 6,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 7.238
+      },
+      {
+        "id": "Link79",
+        "source": "ES17",
+        "destination": "SW12",
+        "sourcePort": 0,
+        "destinationPort": 6,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 7.238
+      },
+      {
+        "id": "Link80",
+        "source": "SW13",
+        "destination": "SW14",
+        "sourcePort": 4,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 41.646
+      },
+      {
+        "id": "Link81",
+        "source": "SW14",
+        "destination": "SW13",
+        "sourcePort": 3,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 41.646
+      },
+      {
+        "id": "Link82",
+        "source": "SW13",
+        "destination": "ES0",
+        "sourcePort": 6,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 4.509
+      },
+      {
+        "id": "Link83",
+        "source": "ES0",
+        "destination": "SW13",
+        "sourcePort": 0,
+        "destinationPort": 6,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 4.509
+      },
+      {
+        "id": "Link84",
+        "source": "SW14",
+        "destination": "SW15",
+        "sourcePort": 4,
+        "destinationPort": 3,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 22.13
+      },
+      {
+        "id": "Link85",
+        "source": "SW15",
+        "destination": "SW14",
+        "sourcePort": 3,
+        "destinationPort": 4,
+        "domain": 0,
+        "bandwidth_mbps": 1000,
+        "delay": 22.13
+      },
+      {
+        "id": "Link86",
+        "source": "SW14",
+        "destination": "ES10",
+        "sourcePort": 6,
+        "destinationPort": 0,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 5.878
+      },
+      {
+        "id": "Link87",
+        "source": "ES10",
+        "destination": "SW14",
+        "sourcePort": 0,
+        "destinationPort": 6,
+        "domain": 0,
+        "bandwidth_mbps": 100,
+        "delay": 5.878
+      }
+    ]
+  }
+}

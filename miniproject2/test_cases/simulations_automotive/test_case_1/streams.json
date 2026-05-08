@@ -1,0 +1,121 @@
+{
+  "delay_units": "MICRO_SECOND",
+  "streams": [
+    {
+        "id": 0,
+        "name": "Stream0",
+        "source": "ES19",
+        "destinations": [
+            {
+                "id": "ES13",
+                "deadline": 1000
+            },
+            {
+                "id": "ES0",
+                "deadline": 1000
+            }
+        ],
+        "type": "CYCLIC-SCHEDULED",
+        "PCP": 7,
+        "size": 50,
+        "period": 1000,
+        "redundancy": 0
+    },
+    {
+        "id": 1,
+        "name": "Stream1",
+        "source": "ES8",
+        "destinations": [
+            {
+                "id": "ES7",
+                "deadline": 50
+            }
+        ],
+        "type": "HIGH-RESOLUTION-SENSOR",
+        "PCP": 6,
+        "size": 1500,
+        "period": 50,
+        "redundancy": 0
+    },
+    {
+        "id": 2,
+        "name": "Stream2",
+        "source": "ES17",
+        "destinations": [
+            {
+                "id": "ES19",
+                "deadline": 50
+            }
+        ],
+        "type": "HIGH-RESOLUTION-SENSOR",
+        "PCP": 6,
+        "size": 1485,
+        "period": 50,
+        "redundancy": 0
+    },
+    {
+        "id": 3,
+        "name": "Stream3",
+        "source": "ES13",
+        "destinations": [
+            {
+                "id": "ES18",
+                "deadline": 20
+            },
+            {
+                "id": "ES2",
+                "deadline": 20
+            }
+        ],
+        "type": "ACOUSTIC-SENSOR",
+        "PCP": 5,
+        "size": 38,
+        "period": 20,
+        "redundancy": 0
+    },
+    {
+        "id": 4,
+        "name": "Stream4",
+        "source": "ES4",
+        "destinations": [
+            {
+                "id": "ES9",
+                "deadline": 50
+            },
+            {
+                "id": "ES18",
+                "deadline": 50
+            }
+        ],
+        "type": "FLEXRAY",
+        "PCP": 4,
+        "size": 118,
+        "period": 50,
+        "redundancy": 0
+    },
+    {
+        "id": 5,
+        "name": "Stream5",
+        "source": "ES2",
+        "destinations": [
+            {
+                "id": "ES14",
+                "deadline": null
+            },
+            {
+                "id": "ES10",
+                "deadline": null
+            },
+            {
+                "id": "ES12",
+                "deadline": null
+            }
+        ],
+        "type": "BEST-EFFORT",
+        "PCP": 0,
+        "size": 30,
+        "period": null,
+        "redundancy": 0
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "delay_units": "MICRO_SECOND",
+  "streams": [
+    {
+        "id": 0,
+        "name": "Stream0",
+        "source": "ES6",
+        "destinations": [
+            {
+                "id": "ES4",
+                "deadline": 500
+            }
+        ],
+        "type": "COMMAND-AND-CONTROL",
+        "PCP": 7,
+        "size": 89,
+        "period": 1000,
+        "redundancy": 0
+    },
+    {
+        "id": 1,
+        "name": "Stream1",
+        "source": "ES18",
+        "destinations": [
+            {
+                "id": "ES14",
+                "deadline": 2857
+            }
+        ],
+        "type": "SYNC-PARAMETRIC",
+        "PCP": 6,
+        "size": 187,
+        "period": 5000,
+        "redundancy": 0
+    },
+    {
+        "id": 2,
+        "name": "Stream2",
+        "source": "ES10",
+        "destinations": [
+            {
+                "id": "ES16",
+                "deadline": 3477
+            },
+            {
+                "id": "ES17",
+                "deadline": 2000
+            }
+        ],
+        "type": "ASYNC-PARAMETRIC",
+        "PCP": 5,
+        "size": 252,
+        "period": 10000,
+        "redundancy": 0
+    },
+    {
+        "id": 3,
+        "name": "Stream3",
+        "source": "ES6",
+        "destinations": [
+            {
+                "id": "ES0",
+                "deadline": 20000
+            },
+            {
+                "id": "ES4",
+                "deadline": 20000
+            },
+            {
+                "id": "ES3",
+                "deadline": 20000
+            },
+            {
+                "id": "ES5",
+                "deadline": 20000
+            }
+        ],
+        "type": "VIDEO",
+        "PCP": 4,
+        "size": 1490,
+        "period": 20000,
+        "redundancy": 0
+    },
+    {
+        "id": 4,
+        "name": "Stream4",
+        "source": "ES11",
+        "destinations": [
+            {
+                "id": "ES17",
+                "deadline": 2935
+            },
+            {
+                "id": "ES13",
+                "deadline": 3000
+            }
+        ],
+        "type": "AUDIO",
+        "PCP": 3,
+        "size": 287,
+        "period": 3000,
+        "redundancy": 0
+    },
+    {
+        "id": 5,
+        "name": "Stream5",
+        "source": "ES6",
+        "destinations": [
+            {
+                "id": "ES4",
+                "deadline": 925800
+            },
+            {
+                "id": "ES0",
+                "deadline": 818635
+            },
+            {
+                "id": "ES3",
+                "deadline": 720392
+            }
+        ],
+        "type": "MAINTENANCE",
+        "PCP": 2,
+        "size": 420,
+        "period": 1500000,
+        "redundancy": 0
+    },
+    {
+        "id": 6,
+        "name": "Stream6",
+        "source": "ES19",
+        "destinations": [
+            {
+                "id": "ES18",
+                "deadline": 2000000
+            }
+        ],
+        "type": "FILE-TRANSFER",
+        "PCP": 1,
+        "size": 8583,
+        "period": 2000000,
+        "redundancy": 0
+    },
+    {
+        "id": 7,
+        "name": "Stream7",
+        "source": "ES1",
+        "destinations": [
+            {
+                "id": "ES5",
+                "deadline": 263408
+            }
+        ],
+        "type": "NETWORK-CONTROL",
+        "PCP": 0,
+        "size": 55,
+        "period": 500000,
+        "redundancy": 0
+    }
+  ]
+}

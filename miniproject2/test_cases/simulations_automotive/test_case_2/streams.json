@@ -1,0 +1,129 @@
+{
+  "delay_units": "MICRO_SECOND",
+  "streams": [
+    {
+        "id": 0,
+        "name": "Stream0",
+        "source": "ES4",
+        "destinations": [
+            {
+                "id": "ES7",
+                "deadline": 1000
+            },
+            {
+                "id": "ES17",
+                "deadline": 1000
+            },
+            {
+                "id": "ES16",
+                "deadline": 1000
+            }
+        ],
+        "type": "CYCLIC-SCHEDULED",
+        "PCP": 7,
+        "size": 108,
+        "period": 1000,
+        "redundancy": 0
+    },
+    {
+        "id": 1,
+        "name": "Stream1",
+        "source": "ES16",
+        "destinations": [
+            {
+                "id": "ES17",
+                "deadline": 50
+            },
+            {
+                "id": "ES12",
+                "deadline": 50
+            },
+            {
+                "id": "ES7",
+                "deadline": 50
+            }
+        ],
+        "type": "HIGH-RESOLUTION-SENSOR",
+        "PCP": 6,
+        "size": 1484,
+        "period": 50,
+        "redundancy": 0
+    },
+    {
+        "id": 2,
+        "name": "Stream2",
+        "source": "ES18",
+        "destinations": [
+            {
+                "id": "ES19",
+                "deadline": 50
+            },
+            {
+                "id": "ES16",
+                "deadline": 50
+            }
+        ],
+        "type": "HIGH-RESOLUTION-SENSOR",
+        "PCP": 6,
+        "size": 1487,
+        "period": 50,
+        "redundancy": 0
+    },
+    {
+        "id": 3,
+        "name": "Stream3",
+        "source": "ES19",
+        "destinations": [
+            {
+                "id": "ES9",
+                "deadline": 20
+            },
+            {
+                "id": "ES1",
+                "deadline": 20
+            }
+        ],
+        "type": "ACOUSTIC-SENSOR",
+        "PCP": 5,
+        "size": 39,
+        "period": 20,
+        "redundancy": 0
+    },
+    {
+        "id": 4,
+        "name": "Stream4",
+        "source": "ES3",
+        "destinations": [
+            {
+                "id": "ES8",
+                "deadline": 50
+            },
+            {
+                "id": "ES15",
+                "deadline": 50
+            }
+        ],
+        "type": "FLEXRAY",
+        "PCP": 4,
+        "size": 102,
+        "period": 50,
+        "redundancy": 0
+    },
+    {
+        "id": 5,
+        "name": "Stream5",
+        "source": "ES14",
+        "destinations": [
+            {
+                "id": "ES16",
+                "deadline": null
+            }
+        ],
+        "type": "BEST-EFFORT",
+        "PCP": 0,
+        "size": 30,
+        "period": null,
+        "redundancy": 0
+    }
+  ]
+}

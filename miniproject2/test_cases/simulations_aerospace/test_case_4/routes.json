@@ -1,0 +1,417 @@
+{
+  "delay_units": "MICRO_SECOND",
+  "routes": [
+    {
+        "flow_id": 0,
+        "paths": [
+            [
+                {
+                    "node": "ES14",
+                    "port": 0
+                },
+                {
+                    "node": "SW11",
+                    "port": 7
+                },
+                {
+                    "node": "ES19",
+                    "port": 0
+                }
+            ],
+            [
+                {
+                    "node": "ES14",
+                    "port": 0
+                },
+                {
+                    "node": "SW11",
+                    "port": 2
+                },
+                {
+                    "node": "SW10",
+                    "port": 2
+                },
+                {
+                    "node": "SW9",
+                    "port": 2
+                },
+                {
+                    "node": "SW12",
+                    "port": 6
+                },
+                {
+                    "node": "ES13",
+                    "port": 0
+                }
+            ],
+            [
+                {
+                    "node": "ES14",
+                    "port": 0
+                },
+                {
+                    "node": "SW11",
+                    "port": 2
+                },
+                {
+                    "node": "SW10",
+                    "port": 2
+                },
+                {
+                    "node": "SW9",
+                    "port": 2
+                },
+                {
+                    "node": "SW12",
+                    "port": 3
+                },
+                {
+                    "node": "SW15",
+                    "port": 7
+                },
+                {
+                    "node": "ES12",
+                    "port": 0
+                }
+            ]
+        ],
+        "min_e2e_delay": 1000.0
+    },
+    {
+        "flow_id": 1,
+        "paths": [
+            [
+                {
+                    "node": "ES6",
+                    "port": 0
+                },
+                {
+                    "node": "SW1",
+                    "port": 2
+                },
+                {
+                    "node": "SW0",
+                    "port": 6
+                },
+                {
+                    "node": "ES2",
+                    "port": 0
+                }
+            ],
+            [
+                {
+                    "node": "ES6",
+                    "port": 0
+                },
+                {
+                    "node": "SW1",
+                    "port": 2
+                },
+                {
+                    "node": "SW0",
+                    "port": 7
+                },
+                {
+                    "node": "ES3",
+                    "port": 0
+                }
+            ]
+        ],
+        "min_e2e_delay": 3000.0
+    },
+    {
+        "flow_id": 2,
+        "paths": [
+            [
+                {
+                    "node": "ES6",
+                    "port": 0
+                },
+                {
+                    "node": "SW1",
+                    "port": 3
+                },
+                {
+                    "node": "SW4",
+                    "port": 4
+                },
+                {
+                    "node": "SW7",
+                    "port": 7
+                },
+                {
+                    "node": "ES7",
+                    "port": 0
+                }
+            ],
+            [
+                {
+                    "node": "ES6",
+                    "port": 0
+                },
+                {
+                    "node": "SW1",
+                    "port": 3
+                },
+                {
+                    "node": "SW4",
+                    "port": 3
+                },
+                {
+                    "node": "SW3",
+                    "port": 0
+                },
+                {
+                    "node": "ES9",
+                    "port": 0
+                }
+            ],
+            [
+                {
+                    "node": "ES6",
+                    "port": 0
+                },
+                {
+                    "node": "SW1",
+                    "port": 2
+                },
+                {
+                    "node": "SW0",
+                    "port": 6
+                },
+                {
+                    "node": "ES2",
+                    "port": 0
+                }
+            ]
+        ],
+        "min_e2e_delay": 8000.0
+    },
+    {
+        "flow_id": 3,
+        "paths": [
+            [
+                {
+                    "node": "ES7",
+                    "port": 0
+                },
+                {
+                    "node": "SW7",
+                    "port": 2
+                },
+                {
+                    "node": "SW4",
+                    "port": 2
+                },
+                {
+                    "node": "SW1",
+                    "port": 6
+                },
+                {
+                    "node": "ES6",
+                    "port": 0
+                }
+            ],
+            [
+                {
+                    "node": "ES7",
+                    "port": 0
+                },
+                {
+                    "node": "SW7",
+                    "port": 3
+                },
+                {
+                    "node": "SW6",
+                    "port": 2
+                },
+                {
+                    "node": "SW3",
+                    "port": 6
+                },
+                {
+                    "node": "ES0",
+                    "port": 0
+                }
+            ],
+            [
+                {
+                    "node": "ES7",
+                    "port": 0
+                },
+                {
+                    "node": "SW7",
+                    "port": 3
+                },
+                {
+                    "node": "SW6",
+                    "port": 6
+                },
+                {
+                    "node": "ES8",
+                    "port": 0
+                }
+            ]
+        ],
+        "min_e2e_delay": 80000.0
+    },
+    {
+        "flow_id": 4,
+        "paths": [
+            [
+                {
+                    "node": "ES13",
+                    "port": 0
+                },
+                {
+                    "node": "SW12",
+                    "port": 3
+                },
+                {
+                    "node": "SW15",
+                    "port": 6
+                },
+                {
+                    "node": "ES10",
+                    "port": 0
+                }
+            ]
+        ],
+        "min_e2e_delay": 3000.0
+    },
+    {
+        "flow_id": 5,
+        "paths": [
+            [
+                {
+                    "node": "ES3",
+                    "port": 0
+                },
+                {
+                    "node": "SW0",
+                    "port": 6
+                },
+                {
+                    "node": "ES2",
+                    "port": 0
+                }
+            ]
+        ],
+        "min_e2e_delay": 3000000.0
+    },
+    {
+        "flow_id": 6,
+        "paths": [
+            [
+                {
+                    "node": "ES9",
+                    "port": 0
+                },
+                {
+                    "node": "SW3",
+                    "port": 2
+                },
+                {
+                    "node": "SW0",
+                    "port": 6
+                },
+                {
+                    "node": "ES2",
+                    "port": 0
+                }
+            ],
+            [
+                {
+                    "node": "ES9",
+                    "port": 0
+                },
+                {
+                    "node": "SW3",
+                    "port": 4
+                },
+                {
+                    "node": "SW4",
+                    "port": 5
+                },
+                {
+                    "node": "SW5",
+                    "port": 2
+                },
+                {
+                    "node": "SW2",
+                    "port": 6
+                },
+                {
+                    "node": "ES1",
+                    "port": 0
+                }
+            ]
+        ],
+        "min_e2e_delay": 15000000.0
+    },
+    {
+        "flow_id": 7,
+        "paths": [
+            [
+                {
+                    "node": "ES4",
+                    "port": 0
+                },
+                {
+                    "node": "SW3",
+                    "port": 3
+                },
+                {
+                    "node": "SW6",
+                    "port": 3
+                },
+                {
+                    "node": "SW7",
+                    "port": 7
+                },
+                {
+                    "node": "ES7",
+                    "port": 0
+                }
+            ],
+            [
+                {
+                    "node": "ES4",
+                    "port": 0
+                },
+                {
+                    "node": "SW3",
+                    "port": 2
+                },
+                {
+                    "node": "SW0",
+                    "port": 7
+                },
+                {
+                    "node": "ES3",
+                    "port": 0
+                }
+            ],
+            [
+                {
+                    "node": "ES4",
+                    "port": 0
+                },
+                {
+                    "node": "SW3",
+                    "port": 3
+                },
+                {
+                    "node": "SW6",
+                    "port": 6
+                },
+                {
+                    "node": "ES8",
+                    "port": 0
+                }
+            ]
+        ],
+        "min_e2e_delay": 200000.0
+    }
+  ]
+}
