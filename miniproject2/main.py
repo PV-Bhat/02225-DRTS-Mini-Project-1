@@ -3,13 +3,15 @@ from parser import parse_topology, parse_streams, parse_routes
 from simulator import simulate
 from analysis import calculate_stream_wcd, calculate_sp_delay
 
+import sys
+
 
 
 
 
 #Load files
 
-TEST_CASE = 'test_cases/examples/test_case_1'
+TEST_CASE = sys.argv[1]
 
 links = parse_topology(f'{TEST_CASE}/topology.json')
 streams = parse_streams(f'{TEST_CASE}/streams.json')
