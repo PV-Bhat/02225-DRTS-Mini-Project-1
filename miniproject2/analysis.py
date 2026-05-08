@@ -1,8 +1,6 @@
 
 
-
-IDLE_SLOPE = 0.5
-SEND_SLOPE = - 0.5
+from config import *
 
 
 # Transmission time in microseconds
@@ -67,6 +65,6 @@ def calculate_sp_delay(stream, streams):
             continue
         if s.pcp > stream.pcp:
             delay += transmission_delay_us(s.size)
-            
+
     return delay
     
