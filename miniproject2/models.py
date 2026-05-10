@@ -9,7 +9,7 @@ class Stream:
     period: int
     deadline: int
     source: str
-    destination: str 
+    destination: str
 
 
 

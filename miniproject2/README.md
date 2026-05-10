@@ -1,5 +1,5 @@
 ## How To Run
-
+Remember to cd into miniproject 2 folder
 
 ```bash
 python main.py test_cases\simulations_aerospace\test_case_1

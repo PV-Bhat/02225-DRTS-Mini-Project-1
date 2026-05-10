@@ -39,6 +39,9 @@ for stream in streams:
 # Simulation 
 print("\nSimulated Results:")
 
+#for stream in streams:
+#    print(stream)
+
 results = simulate(streams)
 
 for stream_id, delays in results.items():

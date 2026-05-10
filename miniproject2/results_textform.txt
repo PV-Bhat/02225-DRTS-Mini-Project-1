@@ -1,0 +1,156 @@
+aerospace 1
+CBS Analytical WCDs:
+Stream Stream0 (ID 0): 1821.81 us
+Stream Stream1 (ID 1): 1815.69 us
+Stream Stream2 (ID 2): 1909.73 us
+Stream Stream3 (ID 3): 2179.41 us
+Stream Stream4 (ID 4): 2080.05 us
+Stream Stream5 (ID 5): 2089.49 us
+Stream Stream6 (ID 6): 3815.61 us
+Stream Stream7 (ID 7): 2967.57 us
+
+SP Analytical WCDs:
+Stream Stream0 (ID 0): 8.08 us
+Stream Stream1 (ID 1): 23.20 us
+Stream Stream2 (ID 2): 43.52 us
+Stream Stream3 (ID 3): 157.12 us
+Stream Stream4 (ID 4): 180.80 us
+Stream Stream5 (ID 5): 203.28 us
+Stream Stream6 (ID 6): 782.40 us
+Stream Stream7 (ID 7): 789.28 us
+
+Simulated Results:
+Stream ID 5: Max Delay = 22.48 us, Avg Delay = 22.48 us
+Stream ID 6: Max Delay = 601.60 us, Avg Delay = 601.60 us
+Stream ID 0: Max Delay = 609.68 us, Avg Delay = 9.04 us
+Stream ID 1: Max Delay = 624.80 us, Avg Delay = 24.91 us
+Stream ID 2: Max Delay = 645.12 us, Avg Delay = 39.47 us
+Stream ID 3: Max Delay = 758.72 us, Avg Delay = 169.65 us
+Stream ID 4: Max Delay = 782.40 us, Avg Delay = 51.50 us
+Stream ID 7: Max Delay = 789.28 us, Avg Delay = 234.04 us
+aerospace 2
+CBS Analytical WCDs:
+Stream Stream0 (ID 0): 1612.47 us
+Stream Stream1 (ID 1): 1650.15 us
+Stream Stream2 (ID 2): 1657.15 us
+Stream Stream3 (ID 3): 1968.19 us
+Stream Stream4 (ID 4): 1883.23 us
+Stream Stream5 (ID 5): 1854.51 us
+Stream Stream6 (ID 6): 2937.67 us
+Stream Stream7 (ID 7): 2403.71 us
+
+SP Analytical WCDs:
+Stream Stream0 (ID 0): 8.32 us
+Stream Stream1 (ID 1): 21.68 us
+Stream Stream2 (ID 2): 39.60 us
+Stream Stream3 (ID 3): 152.24 us
+Stream Stream4 (ID 4): 180.24 us
+Stream Stream5 (ID 5): 186.88 us
+Stream Stream6 (ID 6): 549.04 us
+Stream Stream7 (ID 7): 553.68 us
+
+Simulated Results:
+Stream ID 5: Max Delay = 6.84 us, Avg Delay = 6.74 us
+Stream ID 6: Max Delay = 368.80 us, Avg Delay = 368.80 us
+Stream ID 0: Max Delay = 377.12 us, Avg Delay = 9.19 us
+Stream ID 1: Max Delay = 390.48 us, Avg Delay = 24.06 us
+Stream ID 2: Max Delay = 408.40 us, Avg Delay = 43.85 us
+Stream ID 3: Max Delay = 521.04 us, Avg Delay = 160.27 us
+Stream ID 4: Max Delay = 549.04 us, Avg Delay = 48.16 us
+Stream ID 7: Max Delay = 553.68 us, Avg Delay = 129.52 us
+
+aerospace 3
+
+CBS Analytical WCDs:
+Stream Stream0 (ID 0): 1820.80 us
+Stream Stream1 (ID 1): 1862.84 us
+Stream Stream2 (ID 2): 1906.08 us
+Stream Stream3 (ID 3): 2213.28 us
+Stream Stream4 (ID 4): 2149.28 us
+Stream Stream5 (ID 5): 2203.32 us
+Stream Stream6 (ID 6): 4865.88 us
+Stream Stream7 (ID 7): 3166.88 us
+
+SP Analytical WCDs:
+Stream Stream0 (ID 0): 7.12 us
+Stream Stream1 (ID 1): 22.08 us
+Stream Stream2 (ID 2): 42.24 us
+Stream Stream3 (ID 3): 161.44 us
+Stream Stream4 (ID 4): 184.40 us
+Stream Stream5 (ID 5): 218.00 us
+Stream Stream6 (ID 6): 904.64 us
+Stream Stream7 (ID 7): 909.04 us
+
+Simulated Results:
+Stream ID 5: Max Delay = 33.60 us, Avg Delay = 33.60 us
+Stream ID 6: Max Delay = 720.24 us, Avg Delay = 720.24 us
+Stream ID 0: Max Delay = 727.36 us, Avg Delay = 8.35 us
+Stream ID 1: Max Delay = 742.32 us, Avg Delay = 26.18 us
+Stream ID 2: Max Delay = 762.48 us, Avg Delay = 49.95 us
+Stream ID 3: Max Delay = 881.68 us, Avg Delay = 176.34 us
+Stream ID 4: Max Delay = 904.64 us, Avg Delay = 43.87 us
+Stream ID 7: Max Delay = 909.04 us, Avg Delay = 537.92 us
+
+
+aerospace 4
+CBS Analytical WCDs:
+Stream Stream0 (ID 0): 1850.04 us
+Stream Stream1 (ID 1): 1895.56 us
+Stream Stream2 (ID 2): 1957.24 us
+Stream Stream3 (ID 3): 2366.60 us
+Stream Stream4 (ID 4): 2150.44 us
+Stream Stream5 (ID 5): 2173.88 us
+Stream Stream6 (ID 6): 4263.64 us
+Stream Stream7 (ID 7): 3233.32 us
+
+SP Analytical WCDs:
+Stream Stream0 (ID 0): 7.84 us
+Stream Stream1 (ID 1): 24.32 us
+Stream Stream2 (ID 2): 45.92 us
+Stream Stream3 (ID 3): 161.76 us
+Stream Stream4 (ID 4): 186.24 us
+Stream Stream5 (ID 5): 216.32 us
+Stream Stream6 (ID 6): 917.92 us
+Stream Stream7 (ID 7): 923.44 us
+
+Simulated Results:
+Stream ID 5: Max Delay = 30.08 us, Avg Delay = 30.08 us
+Stream ID 6: Max Delay = 731.68 us, Avg Delay = 731.68 us
+Stream ID 0: Max Delay = 739.52 us, Avg Delay = 9.08 us
+Stream ID 1: Max Delay = 756.00 us, Avg Delay = 28.49 us
+Stream ID 2: Max Delay = 777.60 us, Avg Delay = 34.71 us
+Stream ID 3: Max Delay = 893.44 us, Avg Delay = 176.92 us
+Stream ID 4: Max Delay = 917.92 us, Avg Delay = 55.02 us
+Stream ID 7: Max Delay = 923.44 us, Avg Delay = 154.96 us
+
+
+aerospace 5
+CBS Analytical WCDs:
+Stream Stream0 (ID 0): 1871.00 us
+Stream Stream1 (ID 1): 1910.40 us
+Stream Stream2 (ID 2): 1955.32 us
+Stream Stream3 (ID 3): 2243.96 us
+Stream Stream4 (ID 4): 2156.28 us
+Stream Stream5 (ID 5): 2242.16 us
+Stream Stream6 (ID 6): 6064.40 us
+Stream Stream7 (ID 7): 3168.32 us
+
+SP Analytical WCDs:
+Stream Stream0 (ID 0): 7.92 us
+Stream Stream1 (ID 1): 22.72 us
+Stream Stream2 (ID 2): 43.20 us
+Stream Stream3 (ID 3): 156.48 us
+Stream Stream4 (ID 4): 177.04 us
+Stream Stream5 (ID 5): 222.80 us
+Stream Stream6 (ID 6): 871.28 us
+Stream Stream7 (ID 7): 878.64 us
+
+Simulated Results:
+Stream ID 5: Max Delay = 46.36 us, Avg Delay = 46.06 us
+Stream ID 6: Max Delay = 694.24 us, Avg Delay = 694.24 us
+Stream ID 0: Max Delay = 702.16 us, Avg Delay = 9.16 us
+Stream ID 1: Max Delay = 716.96 us, Avg Delay = 23.96 us
+Stream ID 2: Max Delay = 737.44 us, Avg Delay = 47.41 us
+Stream ID 3: Max Delay = 850.72 us, Avg Delay = 171.83 us
+Stream ID 4: Max Delay = 871.28 us, Avg Delay = 54.28 us
+Stream ID 7: Max Delay = 878.64 us, Avg Delay = 554.70 us
