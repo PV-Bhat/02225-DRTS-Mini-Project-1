@@ -162,7 +162,7 @@ def compute_dm_wcrt(tasks):
         R = task.wcet                  # R⁽⁰⁾ = Cᵢ
         while True:
             interference = sum(
-                math.ceil(R / hp_task.period) * hp_task.wcet
+                math.ceil((R + hp_task.jitter) / hp_task.period) * hp_task.wcet
                 for hp_task in hp
             )
             R_next = task.wcet + interference
