@@ -125,7 +125,7 @@ plot_response_time_distribution = _sim.plot_response_time_distribution
 # ---------------------------------------------------------------------------
 
 UTIL_FOLDERS = ["u30", "u50", "u70", "u90"]
-TASK_SETS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Task-sets")
+DEFAULT_TASK_SETS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Task-sets")
 
 
 def _csvs_in(directory):
@@ -540,6 +540,10 @@ Examples:
         help="Utilisation folder(s) to process (default: u30 u50 u70 u90)"
     )
     parser.add_argument(
+        "--task-sets-dir", default=DEFAULT_TASK_SETS_DIR,
+        help="Root directory containing utilization folders (default: Task-sets)"
+    )
+    parser.add_argument(
         "--csv", nargs="+", default=None,
         help="Specific CSV file(s) to analyse (overrides --util)"
     )
@@ -597,7 +601,7 @@ Examples:
         # Batch mode: process all utilisation folders
         util_dirs = []
         for u in args.util:
-            d = os.path.join(TASK_SETS_DIR, u)
+            d = os.path.join(args.task_sets_dir, u)
             if os.path.isdir(d):
                 util_dirs.append(d)
             else:
@@ -605,7 +609,7 @@ Examples:
 
         if not util_dirs:
             print("ERROR: No utilisation directories found. "
-                  "Check that Task-sets/u30 … u90 exist.")
+                  f"Check that {args.task_sets_dir}/u30 … u90 exist.")
             sys.exit(1)
 
         all_results = batch_analysis(util_dirs, n_runs=args.runs,
@@ -637,7 +641,7 @@ Examples:
                 plot_analytical_vs_simulation(rep, save_path=sp3)
 
             # Also plot the "border" task set (taskset-1) if present
-            border = os.path.join(TASK_SETS_DIR, "taskset-1.csv")
+            border = os.path.join(args.task_sets_dir, "taskset-1.csv")
             if os.path.isfile(border):
                 tasks = _safe_load(border)
                 if tasks:
