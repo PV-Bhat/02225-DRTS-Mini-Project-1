@@ -8,6 +8,8 @@ Time-Sensitive Networking (TSN) is a suite of IEEE 802.1 standards that extends 
 
 This report addresses that challenge for the Credit-Based Shaping (CBS) algorithm defined in IEEE 802.1Qav. CBS is an AVB (Audio/Video Bridging) traffic shaper that uses a credit counter per priority class to police bandwidth consumption and prevent one class from starving another. We implement an analytical CBS WCD model, compare it against Strict Priority (SP) scheduling as a baseline, and validate both against an event-driven CBS simulator. The implementation is evaluated on three benchmark domains — aerospace, automotive, and industrial — using realistic network topologies parsed from JSON configuration files.
 
+Our model is Cao-inspired for the mini-project setting (line-oriented forwarding paths, fixed slope parameters, and three effective queue classes), rather than a full reproduction of every equation in the RTNS/RTS formulations.
+
 % ============================================================
 \section{System Model}
 \label{sec:model}
@@ -335,7 +337,7 @@ Several simplifications limit the accuracy of the current model.
 
 \begin{itemize}
     \item \textbf{Single-port model.} The simulator models one output port only. A full multi-hop simulator would accumulate per-hop delays with credit states carried across hops.
-    \item \textbf{Simplified CBS credit model.} Equation~\ref{eq:cbs_recovery} is a conservative upper bound on the credit recovery time; the standard IEEE 802.1Qav analysis \cite{ieee8021qav} provides tighter formulae that account for the exact slope parameters and frame sizes.
+    \item \textbf{Simplified CBS credit model.} Equation~\ref{eq:cbs_recovery} is a conservative upper bound on the credit recovery time; the formal analyses in \cite{cao2016tight,cao2016independent,cao2018rts} provide tighter formulations that account for detailed class interactions and eligibility windows.
     \item \textbf{BEST-EFFORT streams excluded.} Streams with \texttt{null} period (automotive and industrial) are not included in the simulation. In practice, best-effort traffic contributes non-zero queuing delay and its stochastic behaviour should be modelled (e.g.\ via token-bucket characterisation).
     \item \textbf{Fixed phase offset.} The simulator releases all streams at $t=0$. Staggered offsets, as used in real deployments (e.g.\ via gPTP offset assignment), would reduce worst-case contention.
 \end{itemize}
