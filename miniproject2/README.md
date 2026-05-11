@@ -9,7 +9,7 @@ Implementation and simulation framework for TSN scheduling analysis.
 
 
 ## How To Run
-First make sure to navigate to the `miniproject2` folder in therminal:
+First make sure to navigate to the `miniproject2` folder in terminal:
 ```bash
 cd miniproject2
 ```
