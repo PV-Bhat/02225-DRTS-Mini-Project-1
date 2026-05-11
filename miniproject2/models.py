@@ -6,11 +6,10 @@ class Stream:
     name: str
     pcp: int
     size: int
-    period: int
-    deadline: int
+    period: object  # int or None for best-effort
+    deadline: object  # int or None for best-effort
     source: str
     destination: str
-
 
 
 @dataclass

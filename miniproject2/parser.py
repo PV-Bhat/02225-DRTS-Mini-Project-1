@@ -20,7 +20,7 @@ def parse_topology(file_path):
             delay=l['delay'],
             bandwidth_mbps=l.get('bandwidth_mbps', bandwidth)
         ))
-    return links
+    return links, bandwidth
 
 
 
@@ -53,6 +53,6 @@ def parse_routes(file_path):
     for r in data['routes']:
         routes.append(Route(
             flow_id=r['flow_id'],
-            path=[hop['node']for hop in r['paths'][0]]
+            path=[hop['node'] for hop in r['paths'][0]]
         ))
     return routes
