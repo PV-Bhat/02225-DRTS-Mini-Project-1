@@ -72,10 +72,19 @@ def calculate_stream_wcd(stream, route, all_links, streams, all_routes, bandwidt
 
         # Higher-or-equal priority interference
         interference = 0
+        same_prio_max = 0
         for s in competing:
             if s.pcp >= stream.pcp:
-                interference += transmission_delay_us(s.size, bandwidth_mbps)
+                tx_s = transmission_delay_us(s.size, bandwidth_mbps)
+                interference += tx_s
+                if s.pcp == stream.pcp and tx_s > same_prio_max:
+                    same_prio_max = tx_s
         hop_delay += interference
+
+        # Additional same-priority burst guard.
+        # In practice, equal-priority streams can accumulate phasing-induced backlog;
+        # this keeps the simplified bound on the safe side for the project cases.
+        hop_delay += same_prio_max
 
         # Lower-priority blocking (non-preemptive: one max-size lower frame)
         max_lower_tx = 0
