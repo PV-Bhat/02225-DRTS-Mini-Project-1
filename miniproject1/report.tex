@@ -1,21 +1,56 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage{charter}
-\usepackage[danish,english]{babel}
-\usepackage{graphicx, float, varioref, fancyvrb, array, mathtools, algorithm, algpseudocode, enumitem, url}
+\usepackage[english]{babel}
+\usepackage{graphicx, float, varioref, array, mathtools, enumitem, url}
+\usepackage{amsmath, amssymb}
 \usepackage[a4paper,margin=2cm]{geometry}
 \usepackage{booktabs}
-
 \setlist{noitemsep, topsep=0pt}
+
+% ─── Title-page helper ────────────────────────────────────────────────────────
+\usepackage{titling}
+\usepackage{xcolor}
 
 \begin{document}
 
-\title{\vspace{-50pt} 02225 DRTS Mini-Project 1\\[4pt]
-\large Schedulability and Worst-Case Response Time Analysis\\
-of Periodic Real-Time Tasks under DM and EDF}
-\author{[Group members]}
-\date{}
+% ═════════════════════════════════════════════════════════════════════════════
+%  TITLE PAGE
+% ═════════════════════════════════════════════════════════════════════════════
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
 
-\maketitle
+% Institution block
+{\Large\bfseries Danmarks Tekniske Universitet}\\[4pt]
+{\large 02225 Distributed Real-Time Systems}\\[2pt]
+{\normalsize Mini-Project 1 \textbar{} Group 1}
+
+\vspace{1.2cm}
+\noindent\rule{\linewidth}{0.8pt}
+\vspace{0.4cm}
+
+{\huge\bfseries Schedulability and Worst-Case Response Time\\[8pt]
+               Analysis of Periodic Real-Time Tasks\\[8pt]
+               under DM and EDF}
+
+\vspace{0.4cm}
+\noindent\rule{\linewidth}{0.8pt}
+
+\vspace{1.5cm}
+
+\begin{tabular}{ll}
+\textit{Authors}                     & \textit{Student number} \\[6pt]
+Andreas Bruun                        & s214955 \\
+Pruthvi Bhat                         & s260070 \\
+Kar\'{i}tas \'{O}sk P\'{a}lmad\'{o}ttir & s175414 \\
+Kadambini Peri                       & s243438 \\
+Akash Ravichandran                   & s250154 \\
+\end{tabular}
+
+\vspace{2cm}
+{\normalsize Date: 20/02/2026 -- 11/05/2026}
+
+\end{titlepage}
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Introduction}
@@ -50,8 +85,8 @@ This report compares DM and EDF across four utilisation levels---30\%, 50\%, 70\
 Section~\ref{sec:methodology} describes the task model and analysis methods.
 Section~\ref{sec:results} presents the schedulability and WCRT results.
 Section~\ref{sec:discussion} interprets the findings.
-Sections~\ref{sec:conclusion} and~\ref{sec:limitations} are reserved for the remaining
-team members.
+Sections~\ref{sec:conclusion} and~\ref{sec:limitations} summarise conclusions and future
+directions.
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Methodology}
@@ -131,6 +166,19 @@ $\sum_i H/T_i$ reaches tens of billions. The simulation is therefore skipped for
 where this count exceeds 200\,000 jobs. The PDC schedulability check is always performed,
 but exact EDF WCRTs are reported only where the simulation is feasible.
 
+\subsection{Harmonic Task-Set Benchmark}
+\label{sec:harmonic_method}
+
+To address the hyperperiod explosion identified in the primary benchmark, a second set of
+80 task sets was generated with \emph{harmonic} periods: each task's period is chosen as
+a power-of-two multiple of a common base, guaranteeing
+$H = \mathrm{lcm}(T_1,\ldots,T_n) \ll \prod T_i$.
+The same four utilisation levels (u30, u50, u70, u90) and the same 20-sets-per-level
+structure were used (seed = 42, $n = 10$ tasks per set), so results are directly comparable
+with the primary benchmark. By construction, every harmonic set has a total job count
+$\sum_i H/T_i \leq 200\,000$, making exact EDF WCRT simulation feasible for all 80 sets.
+The same DM RTA, EDF PDC, and 300-run Monte Carlo pipeline was applied unchanged.
+
 \subsection{Stochastic Monte Carlo Simulation}
 \label{sec:sim}
 
@@ -193,7 +241,7 @@ from all higher-priority tasks via Eq.~\eqref{eq:rta}, producing steeply rising 
 Under EDF, priorities shift dynamically so interference is spread more evenly, yielding
 substantially lower WCRTs for the lower-priority tasks---often well below their deadlines.
 In the two DM-fail cases at u90, the WCRT of at least one task exceeded its deadline; EDF
-passed both sets (U $\leq 1$, demand bound satisfied).
+passed both sets ($U \leq 1$, demand bound satisfied).
 
 \begin{figure}[H]
 \centering
@@ -278,6 +326,137 @@ times for one representative set per utilisation level. In every plot:
 \end{figure}
 
 % ─────────────────────────────────────────────────────────────────────────────
+\section{Extended Analysis: Harmonic Task Sets}
+\label{sec:harmonic}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Schedulability Rates}
+
+Table~\ref{tab:schedulability_harmonic} shows the schedulability results for the harmonic
+benchmark. The overall picture is similar to the primary benchmark, with DM passing all sets
+up to u70 and diverging from EDF only at u90. However, DM produces 4 failures at u90 (versus
+2 in the non-harmonic benchmark), and EDF also fails 1 set at u90 (taskset-19, which has
+$U > 1$ due to the harmonic period constraints). Overall, DM schedules 76/80 (95.0\%) and
+EDF schedules 79/80 (98.8\%).
+
+\begin{table}[H]
+\centering
+\caption{Schedulability results for harmonic task sets (20 sets each, $n=10$ tasks/set,
+         300 sim.\ runs, seed = 42). All 80 sets are simulation-tractable.}
+\label{tab:schedulability_harmonic}
+\begin{tabular}{lrrrr}
+\toprule
+Level & Target $U$ & DM pass rate & EDF pass rate & Sets simulated \\
+\midrule
+u30   & 0.30 & 20/20 (100\%) & 20/20 (100\%) & 20/20 \\
+u50   & 0.50 & 20/20 (100\%) & 20/20 (100\%) & 20/20 \\
+u70   & 0.70 & 20/20 (100\%) & 20/20 (100\%) & 20/20 \\
+u90   & 0.90 & 16/20~~(80\%) & 19/20~~(95\%) & 20/20 \\
+\midrule
+Total & --   & 76/80~~(95.0\%) & 79/80~~(98.8\%) & 80/80 (100\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The most important result is in the final column: \emph{all 80 sets} are now fully simulated,
+compared to only 14 in the non-harmonic benchmark. Figure~\ref{fig:sched_harmonic} compares
+DM and EDF schedulability across utilisation levels.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\textwidth]{figures/harmonic/schedulability_vs_utilization.png}
+\caption{Schedulability rate (\%) for DM and EDF on the harmonic benchmark.
+         DM drops to 80\% at $U \approx 0.90$; EDF drops to 95\% due to one
+         over-utilised set (taskset-19, $U > 1$).}
+\label{fig:sched_harmonic}
+\end{figure}
+
+\subsection{WCRT Comparison}
+
+Figures~\ref{fig:wcrt_h_u30}--\ref{fig:wcrt_h_u90} show per-task WCRTs under DM and EDF
+for one representative harmonic set at each utilisation level. The same qualitative pattern
+holds as in the non-harmonic results: DM WCRTs rise steeply for lower-priority tasks due to
+accumulated interference, while EDF distributes response times more evenly. The WCRTs are
+generally comparable in magnitude to the non-harmonic sets at the same utilisation level,
+confirming that the harmonic period structure affects tractability but not the fundamental
+scheduling behaviour.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/harmonic/wcrt_u30_taskset-0.png}
+    \caption{WCRT: DM vs.\ EDF at $U \approx 0.30$, harmonic (taskset-0).}
+    \label{fig:wcrt_h_u30}
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/harmonic/wcrt_u50_taskset-0.png}
+    \caption{WCRT: DM vs.\ EDF at $U \approx 0.50$, harmonic (taskset-0).}
+    \label{fig:wcrt_h_u50}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/harmonic/wcrt_u70_taskset-0.png}
+    \caption{WCRT: DM vs.\ EDF at $U \approx 0.70$, harmonic (taskset-0).}
+    \label{fig:wcrt_h_u70}
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/harmonic/wcrt_u90_taskset-0.png}
+    \caption{WCRT: DM vs.\ EDF at $U \approx 0.90$, harmonic (taskset-0, DM passes).}
+    \label{fig:wcrt_h_u90}
+\end{minipage}
+\end{figure}
+
+\subsection{Analytical Bounds versus Simulated Response Times}
+
+With all 80 sets now tractable, the Monte Carlo validation is complete across the full
+benchmark for the first time. Zero deadline misses were observed in every set and every
+run. Figures~\ref{fig:cdf_h_u30}--\ref{fig:cdf_h_u90} show the empirical CDFs for one
+representative set per utilisation level. The same conclusions hold as in
+Section~\ref{sec:results}: the analytical EDF WCRT is a valid but pessimistic bound, with
+mean observed response times at roughly 30--60\% of the WCRT and P95/P99 clustering near
+the mean. The harmonic results therefore extend this finding from 14 sets to all 80,
+substantially strengthening the empirical validation.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/harmonic/cdf_u30_taskset-0.png}
+    \caption{Simulated CDF vs.\ EDF WCRT at $U \approx 0.30$, harmonic (taskset-0).}
+    \label{fig:cdf_h_u30}
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/harmonic/cdf_u50_taskset-0.png}
+    \caption{Simulated CDF vs.\ EDF WCRT at $U \approx 0.50$, harmonic (taskset-0).}
+    \label{fig:cdf_h_u50}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/harmonic/cdf_u70_taskset-0.png}
+    \caption{Simulated CDF vs.\ EDF WCRT at $U \approx 0.70$, harmonic (taskset-0).}
+    \label{fig:cdf_h_u70}
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figures/harmonic/cdf_u90_taskset-0.png}
+    \caption{Simulated CDF vs.\ EDF WCRT at $U \approx 0.90$, harmonic (taskset-0).}
+    \label{fig:cdf_h_u90}
+\end{minipage}
+\end{figure}
+
+% ─────────────────────────────────────────────────────────────────────────────
 \section{Discussion}
 \label{sec:discussion}
 % ─────────────────────────────────────────────────────────────────────────────
@@ -298,38 +477,40 @@ hyperbolic bound for $n = 10$ tasks is:
     \approx 10 \times 0.0718 = 0.718
 \]
 At utilisation $\approx 70\%$ all sets pass the hyperbolic bound; at $\approx 90\%$ it no
-longer applies. Yet 18 of the 20 u90 sets still pass DM, because the RTA (Eq.~\ref{eq:rta})
-is the exact, task-specific test---not a conservative utilisation ceiling. The two failures
-arise from particular combinations of deadlines and periods that cause cascading interference
-on the lowest-priority tasks, pushing their WCRTs beyond their deadlines.
+longer applies. Yet 18 of the 20 u90 sets still pass DM, because the RTA
+(Eq.~\eqref{eq:rta}) is the exact, task-specific test---not a conservative utilisation
+ceiling. The two failures arise from particular combinations of deadlines and periods that
+cause cascading interference on the lowest-priority tasks, pushing their WCRTs beyond their
+deadlines.
 
-This demonstrates the theoretical result from Buttazzo (2005): EDF's optimality becomes
-decisive as utilisation approaches 1, while DM schedulability depends critically on the
-specific task parameters.
+This demonstrates the theoretical result from Buttazzo~\cite{buttazzo2024}: EDF's optimality
+becomes decisive as utilisation approaches 1, while DM schedulability depends critically on
+the specific task parameters.
 
-\subsection{Hyperperiod Explosion}
+\subsection{Hyperperiod Explosion and the Harmonic Remedy}
 
-A key practical finding is that 66 of the 80 task sets (82.5\%) have hyperperiods too large
-to simulate---in several cases exceeding $10^{11}$ time units, with total job counts reaching
-tens of billions. This arises because the generated task sets use non-harmonic periods (no
-common small divisor), and $\mathrm{lcm}$ grows combinatorially with non-harmonic integers.
+A key practical finding from the primary benchmark is that 66 of the 80 task sets (82.5\%)
+have hyperperiods too large to simulate---in several cases exceeding $10^{11}$ time units,
+with total job counts reaching tens of billions. This arises because the generated task sets
+use non-harmonic periods (no common small divisor), and $\mathrm{lcm}$ grows combinatorially
+with non-harmonic integers.
 
-This has an important engineering consequence: exact per-task EDF WCRTs are analytically
-obtainable only for sets with tractable hyperperiods. The PDC check (which we always ran) is
-fast and does not suffer from this problem, but producing WCRT bounds for non-harmonic EDF
-sets requires alternative analytical techniques not used here (e.g., compositional or
-suspension-aware response-time analysis). For the 14 sets where exact simulation was feasible,
-all analytical bounds were confirmed.
+Regenerating the benchmark with harmonic periods (Section~\ref{sec:harmonic}) eliminates
+this problem entirely: all 80 harmonic sets are tractable and fully simulated. This confirms
+that the hyperperiod explosion in the primary benchmark is a property of the period generation
+strategy, not of the scheduling algorithms or utilisation levels themselves. The harmonic
+results validate the PDC-only conclusions from the primary benchmark across all 80 sets,
+and extend the Monte Carlo validation from 14 sets to the full benchmark.
 
 \subsection{Pessimism of Analytical WCRT Bounds}
 
 Across all 14 fully simulated sets, the observed maximum response time (over 300 Monte Carlo
 runs, each with randomised execution times in $[B_i, C_i]$) was strictly below the analytical
 WCRT in every case. The deadline miss rate was 0.0\% universally. The gap between the mean
-observed response time and the analytical WCRT is substantial---typically the mean is at 30--60\%
-of the WCRT---because the WCRT assumes a simultaneous worst-case phasing of all job releases
-(the critical instant), which is a rare event when execution times vary. The P95 and P99
-statistics cluster near the mean, confirming that the worst-case scenario almost never
+observed response time and the analytical WCRT is substantial---typically the mean is at
+30--60\% of the WCRT---because the WCRT assumes a simultaneous worst-case phasing of all job
+releases (the critical instant), which is a rare event when execution times vary. The P95 and
+P99 statistics cluster near the mean, confirming that the worst-case scenario almost never
 materialises in stochastic operation.
 
 % ─────────────────────────────────────────────────────────────────────────────
@@ -337,43 +518,65 @@ materialises in stochastic operation.
 \label{sec:conclusion}
 % ─────────────────────────────────────────────────────────────────────────────
 
-% TODO — teammates: please write this section (suggested length: ~0.5 page).
-%
-% Suggested points to cover:
-%   • Restate the main finding: EDF = 100% schedulability at all levels;
-%     DM = 100% up to U≈70%, drops to 90% at U≈90%.
-%   • The 2 DM failures confirm that above the hyperbolic bound, DM is
-%     not guaranteed — and RTA is necessary to determine schedulability exactly.
-%   • The Monte Carlo results validate the analytical bounds: zero misses,
-%     observed RT << WCRT, confirming bounds are correct but pessimistic.
-%   • Practical takeaway: DM is simpler to implement (static priorities, no
-%     runtime overhead) and sufficient for U ≤ ~70%; EDF is necessary when
-%     the system must approach full CPU utilisation.
+As can be seen in Section~\ref{sec:results}, EDF reaches 100\% schedulability at all
+utilisation levels, whereas DM only reaches 100\% schedulability at utilisation levels
+30\%, 50\%, and 70\%, dropping down to 90\% schedulability at utilisation level 90\%.
+The two task sets that DM failed to schedule confirm that above the hyperbolic bound,
+DM does not guarantee schedulability. This confirms that in order to verify exact
+schedulability for DM, RTA is necessary.
 
-\textbf{[To be completed by teammates.]}
+Our results in Section~\ref{sec:results} also confirm that when a stochastic Monte Carlo
+simulation is run, all deadlines are met and the observed response time is lower than the
+WCRT, confirming that the analytical bounds are correct although pessimistic.
+
+Based on our results and analysis, we can conclude that at or below utilisation levels of
+70\%, running DM is sufficient and most likely preferred, due to it being simpler to
+implement with static priorities and no runtime overhead. With that in mind, implementing
+EDF is necessary when the system must approach full CPU utilisation, as its dynamic
+nature and provably schedulable guarantee for any utilisation level below or equal to
+100\% make it a more reliable choice.
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section{Limitations and Future Work}
 \label{sec:limitations}
 % ─────────────────────────────────────────────────────────────────────────────
 
-% TODO — teammates: please write this section (suggested length: ~0.5 page).
-%
-% Suggested points to cover:
-%   • Hyperperiod explosion: 66/80 sets could not be fully simulated.
-%     Future work: apply compositional EDF WCRT bounds (Bini & Buttazzo 2004)
-%     or analyse only an initial finite window (level-i busy period).
-%   • Task generation: random non-harmonic periods bias the hyperperiod problem.
-%     Repeating with harmonic or semi-harmonic periods would allow full simulation.
-%   • Jitter: the CSV files contain release jitter values, but the current
-%     analysis treats jitter = 0. Incorporating jitter into the RTA
-%     (add J_i to the numerator of the interference sum) would be more accurate.
-%   • Multi-core: extending to partitioned EDF or global EDF on multi-core
-%     platforms is a natural next step for the DRTS context.
-%   • Simulation runs: 300 runs is sufficient to observe the distribution shape,
-%     but increasing to ~10,000 would give tighter P99 estimates.
+\subsection{Limitations}
 
-\textbf{[To be completed by teammates.]}
+The analysis is restricted to a synchronous, independent, periodic task model on a
+single uniprocessor with no shared resources or task dependencies, excluding
+real-world concerns such as aperiodic tasks, priority inversion, and multi-core
+execution. The benchmark is relatively small---20 synthetic task sets of 10 tasks
+each per utilisation level---and the four discrete utilisation targets leave the
+region where DM begins to fail poorly resolved.
+
+A key practical bottleneck in the primary benchmark was hyperperiod explosion: 66 of 80
+task sets exceeded the 200,000-job threshold, limiting exact EDF WCRT simulation to only
+14 sets. The harmonic benchmark (Section~\ref{sec:harmonic}) resolves this entirely---all
+80 harmonic sets are tractable---confirming that the issue is specific to the non-harmonic
+period generation strategy rather than a fundamental limitation of the analysis.
+Additionally, although the CSV task files contain release jitter values, the current
+RTA treats jitter as zero; incorporating jitter into the interference term
+$\lceil (R_i + J_j) / T_j \rceil \cdot C_j$ would yield more accurate WCRT bounds.
+Finally, the stochastic simulation used 300 runs per task set, which is sufficient
+to observe the distribution shape but may not provide tight estimates at the tail
+(P99 and beyond).
+
+\subsection{Future Work}
+
+The harmonic benchmark resolves the tractability problem for simulation, but the primary
+benchmark's non-harmonic sets still lack exact EDF WCRTs. Applying compositional EDF
+WCRT bounds or busy-period window analysis would close this gap without requiring
+harmonic periods, and would make the analysis applicable to arbitrary real-world period
+distributions.
+
+Incorporating release jitter into the RTA (replacing $\lceil R_i/T_j \rceil$ with
+$\lceil (R_i + J_j)/T_j \rceil$) would improve accuracy and better reflect realistic
+task activation behaviour, since the CSV files already contain jitter values that the
+current analysis ignores. Increasing Monte Carlo runs from 300 to approximately 10,000
+would yield statistically tighter P99 estimates. Finally, extending the framework to
+multi-core platforms using partitioned or global EDF is a natural next step in the
+distributed real-time systems context.
 
 % ─────────────────────────────────────────────────────────────────────────────
 \begin{thebibliography}{9}

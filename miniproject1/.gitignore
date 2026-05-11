@@ -1,1 +1,18 @@
+# Python
 __pycache__/
+*.pyc
+*.pyo
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+
+# Generated output (reproduced by running analysis.py --save-plots figures/)
+# Keep figures/ tracked since Overleaf needs the PNGs
+# figures/
+
+# Submission zip
+*.zip
